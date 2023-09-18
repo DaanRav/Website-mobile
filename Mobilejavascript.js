@@ -1,22 +1,21 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const video = document.getElementById("myVideo");
-    const vorigeButton = document.getElementById("vorige-button");
-    const nextButton = document.getElementById("next-button");
-    const loadingProgress = document.querySelector('.loading-progress');
+  document.addEventListener("DOMContentLoaded", function() {
+    const vorigeButton = document.getElementById("back-button");
+    const nextButton = document.getElementById("volgende-button");
+    const loadingProgress = document.querySelector('.laad-progress');
     const transitionDuration = 2000; // 2 sec
     let hasEnteredViewport = false;
     let currentState = 0;
-	let linkLine = document.getElementById("linkLine");
+	let linkLine = document.getElementById("link-Line");
   let activeIndex = 0;
 
-const group = document.getElementsByClassName("image-group");
+const group = document.getElementsByClassName("afbeelding-group");
     function updateContent() {
 		console.log("Updating content for currentState:", currentState);
 		
         const elements = [
-            ["first-title", "first-subtitle", "first-link",],
-            ["second-title", "second-subtitle", "second-link",],
-            ["third-title", "third-subtitle", "third-link",]
+            ["eerste-title", "eerste-subtitle", "eerste-link",],
+            ["tweede-title", "tweede-subtitle", "tweede-link",],
+            ["derde-title", "derde-subtitle", "derde-link",]
         ];
 
         elements.flat().forEach(id => {
@@ -35,12 +34,12 @@ const group = document.getElementsByClassName("image-group");
 
         loadingProgress.style.width = `${(currentState + 1) * 33.3}%`;
 		 
-  const elementToModify = document.querySelector('.block-2-line3');
+  const elementToModify = document.querySelector('.block-2-lijn3');
 
     if (currentState === 1 || currentState === 2) {
-        elementToModify.classList.add('no-underline');
+        elementToModify.classList.add('geen-underline');
     } else {
-        elementToModify.classList.remove('no-underline');
+        elementToModify.classList.remove('geen-underline');
     }
 }
 
@@ -68,7 +67,7 @@ function goForward() {
             activeIndex = nextindex;
         });
     }
-    const allButtons = document.querySelectorAll('.block-3-button-container .block-3-button');
+    const allButtons = document.querySelectorAll('.block-3-knop-container .block-3-knop');
 
 allButtons.forEach(button => {
     button.classList.remove('state-0', 'state-1', 'state-2');
@@ -78,7 +77,7 @@ allButtons.forEach(button => {
 allButtons.forEach(button => {
     button.classList.add(`state-${currentState}`);
 });
-const lineContainer = document.querySelector('.line-container');
+const lineContainer = document.querySelector('.lijn-container');
     
  
     lineContainer.classList.remove('state-0', 'state-1', 'state-2');
@@ -108,7 +107,7 @@ const lineContainer = document.querySelector('.line-container');
             activeIndex = previndex;
         });
     }
-    const allButtons = document.querySelectorAll('.block-3-button-container .block-3-button');
+    const allButtons = document.querySelectorAll('.block-3-knop-container .block-3-knop');
 
 
 allButtons.forEach(button => {
@@ -119,7 +118,7 @@ allButtons.forEach(button => {
 allButtons.forEach(button => {
     button.classList.add(`state-${currentState}`);
 });
-const lineContainer = document.querySelector('.line-container');
+const lineContainer = document.querySelector('.lijn-container');
     
     lineContainer.classList.remove('state-0', 'state-1', 'state-2');
     
